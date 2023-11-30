@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+$body-bg: white;
+$body-color: black;
+
+.center{
+    text-align: center;
+    margin: 2%;
+}
+.form{
+    margin: 2%;
+    background-color: steelblue;
+    padding: 5%;
+    border-radius: 30px;
+}
+.main{
+    background-color: white;
+}
+
+@import "../node_modules/bootstrap/scss/bootstrap";
