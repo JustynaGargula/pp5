@@ -1,19 +1,30 @@
-<form class="form" id="form1">
+<!-- <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+  <input name="first" ngModel required #first="ngModel">
+  <input name="last" ngModel>
+  <button>Submit</button>
+</form>
+
+<p>First name value: {{ first.value }}</p>
+<p>First name valid: {{ first.valid }}</p>
+<p>Form value: {{ f.value | json }}</p>
+<p>Form valid: {{ f.valid }}</p> -->
+
+<form class="form" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate id="form1">
     <div class="mb-3">
       <label for="companyName" class="form-label">company name</label>
-      <input type="text" class="form-control" id="companyName" required>
+      <input type="text" class="form-control" name="companyName" [(ngModel)]="customer.companyName" id="companyName" required>
     </div>
     <div class="mb-3">
       <label for="NIP" class="form-label">NIP</label>
-      <input type="text" class="form-control" id="NIP" required>
+      <input type="text" class="form-control" name="nip" [(ngModel)]="customer.nip" id="NIP" required>
     </div>
     <div class="mb-3">
       <label for="city" class="form-label">city</label>
-      <input type="text" class="form-control" id="city" required>
+      <input type="text" class="form-control" name="city" [(ngModel)]="customer.city" id="city" required>
     </div>
     <div class="mb-3">
       <label for="street" class="form-label">street</label>
-      <input type="text" class="form-control" id="street" required>
+      <input type="text" class="form-control" name="street" [(ngModel)]="customer.street" id="street" required>
     </div>
     <div class="mb-3">
       <label for="houseNumber" class="form-label">house number</label>
@@ -48,4 +59,5 @@
       <input type="checkbox" class="form-check-input" id="online" required>
     </div>
 
+    <button>Submit</button>
   </form>
