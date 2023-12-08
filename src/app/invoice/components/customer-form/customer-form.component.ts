@@ -11,8 +11,8 @@ import { Customer } from '../../models/customer';
 })
 export class CustomerFormComponent {
   customer: Customer = new Customer;
-onSubmit(form: NgForm) {
-  console.log(form.value);
-}
+  onSubmit(form: NgForm) {
+    console.log(form.value);
+  }
 
 }
