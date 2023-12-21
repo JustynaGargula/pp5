@@ -1,5 +1,6 @@
 <p>customer-list works!</p>
-<div *ngFor="let customer of customerList">
-    <app-customer-list-element [customer]="customer"></app-customer-list-element>
+<div *ngFor="let customer of customerList" [ngStyle]="{'color': customer.online==false ? 'red': 'green'}" >
+    <app-customer-list-element [customer]="customer">
+    </app-customer-list-element>
 </div>
 

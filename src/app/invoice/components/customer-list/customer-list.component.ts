@@ -17,5 +17,6 @@ export class CustomerListComponent {
   ngOnInit(){
     this.customerList = this.dataService.getCustomer();
   }
+  
 
 }
