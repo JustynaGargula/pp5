@@ -1,6 +1,8 @@
 <p>customer-list works!</p>
 <div *ngFor="let customer of customerList" [ngStyle]="{'color': customer.online==false ? 'red': 'green'}" >
-    <app-customer-list-element [customer]="customer">
+    <app-customer-list-element [customer]="customer"
+    (deletedCustomerEvent)="deleteCustomer($event)" >
     </app-customer-list-element>
 </div>
+<button (click)="goToForm()">Go to form</button>
 

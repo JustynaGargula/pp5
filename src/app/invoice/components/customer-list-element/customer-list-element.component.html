@@ -2,4 +2,5 @@
 <ul class="company">Company name: {{ customer.companyName }}
     <li>NIP: {{ customer.nip }}</li>
     <li>Address: {{ customer.getAddress() }}</li>
+    <button (click)="onDeletedCustomer(customer)">Delete customer</button>
 </ul>
