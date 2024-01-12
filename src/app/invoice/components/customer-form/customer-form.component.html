@@ -1,24 +1,31 @@
 
-<form class="form" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate id="form1">
+<form class="form" (ngSubmit)="onSubmit(customerForm)" #customerForm="ngForm" novalidate id="form1">
     <div class="mb-3">
       <label for="companyName" class="form-label">company name</label>
-      <input type="text" class="form-control" name="companyName" [(ngModel)]="customer.companyName" id="companyName" required>
+      <input type="text" class="form-control" name="companyName" #name="ngModel" [(ngModel)]="customer.companyName" id="companyName" required>
+      <div *ngIf="name.invalid && name.touched" class="alert alert-danger">Please fill this field</div>
     </div>
     <div class="mb-3">
       <label for="NIP" class="form-label">NIP</label>
-      <input type="text" class="form-control" name="nip" [(ngModel)]="customer.nip" id="NIP" required>
+      <input type="text" class="form-control" name="nip" #nip="ngModel" [(ngModel)]="customer.nip" id="NIP" required>
+      <div *ngIf="nip.invalid && nip.touched" class="alert alert-danger">Please fill this field</div>
     </div>
     <div class="mb-3">
       <label for="city" class="form-label">city</label>
-      <input type="text" class="form-control" name="city" [(ngModel)]="customer.city" id="city" required>
+      <input type="text" class="form-control" name="city" #city="ngModel" [(ngModel)]="customer.city" id="city" required>
+      <div *ngIf="city.invalid && city.touched" class="alert alert-danger">Please fill this field</div>    
     </div>
     <div class="mb-3">
       <label for="street" class="form-label">street</label>
-      <input type="text" class="form-control" name="street" [(ngModel)]="customer.street" id="street" required>
+      <input type="text" class="form-control" name="street" #street="ngModel" [(ngModel)]="customer.street" id="street" required>
+      <div *ngIf="street.invalid && street.touched" class="alert alert-danger">Please fill this field</div>
+    
     </div>
     <div class="mb-3">
       <label for="houseNumber" class="form-label">house number</label>
-      <input type="text" class="form-control" name="houseNumber" [(ngModel)]="customer.houseNumber" id="houseNumber" required>
+      <input type="text" class="form-control" name="houseNumber" #houseNumber="ngModel" [(ngModel)]="customer.houseNumber" id="houseNumber" required>
+      <div *ngIf="houseNumber.invalid && houseNumber.touched" class="alert alert-danger">Please fill this field</div>
+    
     </div>
     <div class="mb-3">
       <label for="flatNumber" class="form-label">flat number</label>
@@ -26,7 +33,9 @@
     </div>
     <div class="mb-3">
       <label for="postNumber" class="form-label">post number</label>
-      <input type="text" class="form-control" name="postNumber" [(ngModel)]="customer.postNumber" id="postNumber" required>
+      <input type="text" class="form-control" name="postNumber" #postNumber="ngModel" [(ngModel)]="customer.postNumber" id="postNumber" required>
+      <div *ngIf="postNumber.invalid && postNumber.touched" class="alert alert-danger">Please fill this field</div>
+
     </div>
 
     <div class="mb-3">
@@ -48,6 +57,9 @@
       <label class="form-check-label" for="online">online</label>
       <input type="checkbox" class="form-check-input" name="online" [(ngModel)]="customer.online" id="online" required>
     </div>
+
+    <div *ngIf="customerForm.valid == false">Please fill all fields in form</div>
+    <div *ngIf="customerForm.valid">Everything fine in the form</div>
 
     <button>Submit</button>
   </form>

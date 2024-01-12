@@ -21,8 +21,14 @@ export class CustomerFormComponent {
   customer: Customer = new Customer;
   onSubmit(form: NgForm) {
     console.log(form.value);
-    this.dataService.addCustomer(this.customer)
-    this.router.navigate(['/invoice/customer/list'])
+    if(form.valid){
+      this.dataService.addCustomer(this.customer)
+      this.router.navigate(['/invoice/customer/list'])
+    }
+    else{
+      console.log("Please fill all fields in form")
+    }
+
   }
 
 }
