@@ -2,7 +2,8 @@
 <form class="form" (ngSubmit)="onSubmit(customerForm)" #customerForm="ngForm" novalidate id="form1">
     <div class="mb-3">
       <label for="companyName" class="form-label">company name</label>
-      <input type="text" class="form-control" name="companyName" #name="ngModel" [(ngModel)]="customer.companyName" id="companyName" required>
+      <input type="text" class="form-control" name="companyName" #name="ngModel" [(ngModel)]="customer.companyName" 
+        id="companyName" required [ngStyle]="{'border': customerForm.submitted ? 'red 5px': 'white 5px'}" >
       <div *ngIf="name.invalid && name.touched" class="alert alert-danger">Please fill this field</div>
     </div>
     <div class="mb-3">
@@ -12,7 +13,7 @@
     </div>
     <div class="mb-3">
       <label for="city" class="form-label">city</label>
-      <input type="text" class="form-control" name="city" #city="ngModel" [(ngModel)]="customer.city" id="city" required>
+      <input type="text" class="form-control" name="city" #city="ngModel" [(ngModel)]="customer.city" id="city" required style="border: red 5px;">
       <div *ngIf="city.invalid && city.touched" class="alert alert-danger">Please fill this field</div>    
     </div>
     <div class="mb-3">
@@ -55,11 +56,13 @@
 
     <div class="mb-3 form-check">
       <label class="form-check-label" for="online">online</label>
-      <input type="checkbox" class="form-check-input" name="online" [(ngModel)]="customer.online" id="online" required>
+      <input type="checkbox" class="form-check-input" name="online" [(ngModel)]="customer.online" id="online">
     </div>
 
-    <div *ngIf="customerForm.valid == false">Please fill all fields in form</div>
+    <div *ngIf="customerForm.invalid">Please fill all fields in form</div>
     <div *ngIf="customerForm.valid">Everything fine in the form</div>
 
-    <button>Submit</button>
+    <button #submit *ngIf="customerForm.valid" >Submit</button>
+    <button #submit *ngIf="customerForm.invalid" disabled>Submit</button>
+
   </form>
